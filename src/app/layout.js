@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Unlims",
+  title: "Unlimails",
   description: "Get unlimited free emails to receive mail in your inbox.",
 };
 
