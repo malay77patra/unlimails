@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Dice5 } from 'lucide-react';
@@ -17,6 +17,15 @@ export default function MailFetcher() {
     const pageLoaded = page - 1;
     const [emailsCount, setEmailsCount] = useState(0);
     const limit = 10;
+
+    useEffect(() => {
+        const storedTag = localStorage.getItem('email_tag');
+        setTag(storedTag || '');
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('email_tag', tag || '');
+    }, [tag]);
 
     const handleFetch = async (reset = true) => {
         if (!tag.trim()) {
