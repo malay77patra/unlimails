@@ -2,7 +2,7 @@ import { withAuth } from "@/lib/withAuth";
 import testmailClient from "@/lib/testmailClient";
 
 export const GET = withAuth(async (request, { params }) => {
-    const { id } = params;
+    const { id } = await params;
     const namespace = process.env.NEXT_PUBLIC_NAMESPACE;
 
     if (!namespace) throw new Error('NEXT_PUBLIC_NAMESPACE is not set');

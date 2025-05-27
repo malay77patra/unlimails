@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Loader2, AlertCircle, Download } from 'lucide-react';
 import { Button } from './ui/button';
 import DOMPurify from 'dompurify';
+import Link from 'next/link';
 
 export default function MailPreview({ id }) {
     const [email, setEmail] = useState(null);
@@ -82,18 +83,19 @@ export default function MailPreview({ id }) {
     return (
         <div className="max-w-5xl mx-auto">
             <div className="flex items-center justify-end">
-                <Button
-                    as="a"
-                    href={email.downloadUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="outline"
-                    size="sm"
-                    className="inline-flex items-center gap-2"
-                >
-                    <Download className="h-4 w-4" />
-                    Download Raw Email
-                </Button>
+                <Link href={email.downloadUrl} target='_blank' rel="noopener noreferrer">
+                    <Button
+                        as="a"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="outline"
+                        size="sm"
+                        className="inline-flex items-center gap-2"
+                    >
+                        <Download className="h-4 w-4" />
+                        Download Raw Email
+                    </Button>
+                </Link>
             </div>
             <h2 className="text-2xl font-semibold mb-2">{email.subject}</h2>
             <p className="text-sm text-gray-500 mb-1 font-medium">
