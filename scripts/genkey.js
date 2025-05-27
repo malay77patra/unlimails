@@ -35,12 +35,10 @@ if (amount <= 0) {
     process.exit(1);
 }
 
-console.log(amount)
-
 const expiresIn = unit === 'months' ? `${30 * amount}d` : `${amount}${short}`;
 const payload = { name };
 
 const token = jwt.sign(payload, JWT_SECRET, { expiresIn });
 
-console.log('\nGenerated JWT:\n');
+console.log('\nGenerated JWT:');
 console.log(token);

@@ -22,7 +22,7 @@ export default function SettingsDialog({ open, onOpenChange }) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Authentication Token</DialogTitle>
+          <DialogTitle>API Key</DialogTitle>
         </DialogHeader>
         <Input
           placeholder="Enter your API key"
